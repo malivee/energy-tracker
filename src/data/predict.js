@@ -1,7 +1,7 @@
 
 export default class Prediction {
   async predict(data) {
-    const response = await fetch(`${process.env.FUNCTION_API}`  , {
+    const response = await fetch(`https://predict-proxy-olive.vercel.app/api/proxy-predict`  , {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ input: [[data.hour, data.kwh, data.cost]] }),
