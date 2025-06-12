@@ -1,6 +1,7 @@
+
 export default class Prediction {
   async predict(data) {
-    const response = await fetch('http://ec2-3-24-134-86.ap-southeast-2.compute.amazonaws.com:5000/predict', {
+    const response = await fetch(`${process.env.URL_API}/predict`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ input: [[data.hour, data.kwh, data.cost]] }),
