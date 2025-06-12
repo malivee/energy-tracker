@@ -1,6 +1,7 @@
 
 export default class Prediction {
   async predict(data) {
+    console.log(process.env.FUNCTION_API)
     const response = await fetch(`${process.env.FUNCTION_API}` , {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
