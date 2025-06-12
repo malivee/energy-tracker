@@ -21,6 +21,8 @@ export default class AnalysisPresenter {
     return;
     }
 
+    this.#view.showLoading();
+
     try {
 
 
@@ -39,6 +41,8 @@ export default class AnalysisPresenter {
         title: 'Gagal mengirim data. Coba lagi nanti.',
         icon: 'error'
       });
+    } finally {
+      this.#view.hideLoading();
     }
   }
 }

@@ -5,6 +5,7 @@ import AnalysisPresenter from './analysis-presenter';
 export default class AnalysisPage {
   async render() {
     return `
+
       <div data-aos="fade-left" data-aos-delay="200" class="analysis-section">
         <div class="analysis-container">
           <img src="${image}" alt="Smart Home Energy" id="img-analysis" />
@@ -52,10 +53,13 @@ export default class AnalysisPage {
                 <label>&nbsp;</label>
                 <button type="submit" id="submitBtn">Klasifikasi</button>
               </div>
+
             </div>
           </div>
         </div>
       </div>
+    <div id="loading-container"></div>
+
     `;
   }
 
@@ -124,5 +128,15 @@ export default class AnalysisPage {
 
     }
     resultContainer.appendChild(result);
+  }
+
+  showLoading() {
+    document.getElementById('loading-container').innerHTML = `
+       <div class="loader" style="margin-top: 1rem;"></div>
+    `;
+  }   
+
+  hideLoading() {
+     document.getElementById('loading-container').innerHTML = '';
   }
 }
